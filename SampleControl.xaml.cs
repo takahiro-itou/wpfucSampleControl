@@ -17,6 +17,16 @@ public partial class SampleControl : UserControl
     }
 
     //----------------------------------------------------------------
+    /**   InputText プロパティ
+    **
+    **/
+    public System.String InputText
+    {
+        get { return  txtInput.Text; }
+        set { txtInput.Text = value; }
+    }
+
+    //----------------------------------------------------------------
     /**   イベントハンドラ
     **
     **    「クリア」ボタンのクリックイベント。
