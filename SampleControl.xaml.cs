@@ -19,6 +19,15 @@ public partial class SampleControl : UserControl
     //----------------------------------------------------------------
     /**   イベントハンドラ
     **
+    **    「クリア」ボタンのクリックイベント。
+    **/
+    private void btnClear_Click(object sender, EventArgs e)
+    {
+    }
+
+    //----------------------------------------------------------------
+    /**   イベントハンドラ
+    **
     **    「実行」ボタンのクリックイベント。
     **/
     private void btnRun_Click(object sender, EventArgs e)

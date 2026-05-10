@@ -57,6 +57,7 @@
           Content="_Clear"
           Margin="4,4,8,8"
           Width="96" Height="24"
+          Click="btnClear_Click"
       />
     </StackPanel>
   </Grid>
