@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel;
 using System.Windows.Controls;
 
 namespace WpfControl.Sample
@@ -20,6 +21,10 @@ public partial class SampleControl : UserControl
     /**   InputText プロパティ
     **
     **/
+    [Browsable(true)
+      , Description("入力テキストボックスに入力された文字列")
+      , Category("表示")
+    ]
     public System.String InputText
     {
         get { return  txtInput.Text; }
