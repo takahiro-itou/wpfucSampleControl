@@ -16,6 +16,15 @@ public partial class SampleControl : UserControl
         InitializeComponent();
     }
 
+    //----------------------------------------------------------------
+    /**   イベントハンドラ
+    **
+    **    「実行」ボタンのクリックイベント。
+    **/
+    private void btnRun_Click(object sender, EventArgs e)
+    {
+    }
+
 }
 
 }   //  End of namespace  WpfControl.Sample

@@ -51,6 +51,7 @@
           Content="_Run"
           Margin="8,4,8,8"
           Width="96" Height="24"
+          Click="btnRun_Click"
       />
       <Button x:Name="btnClear"
           Content="_Clear"
@@ -59,4 +60,5 @@
       />
     </StackPanel>
   </Grid>
+
 </UserControl>
