@@ -51,10 +51,39 @@ public partial class SampleControl : UserControl
         set { txtInput.Text = value; }
     }
 
+
 //========================================================================
 //
 //    外部に公開するイベント
 //
+
+    //----------------------------------------------------------------
+    /**   RunButtonClick  イベント
+    **
+    **/
+    [Browsable(true)
+      , Description("実行ボタンがクリックされた時に発生します")
+      , Category("アクション")
+    ]
+    public event EventHandler<EventArgs>? RunButtonClick;
+
+
+//========================================================================
+//
+//    Protected Member Functions.
+//
+
+    //----------------------------------------------------------------
+    /**   イベントハンドラを呼び出すメソッド。
+    **
+    **/
+    protected virtual void OnRunButtonClick(EventArgs e)
+    {
+        var eventHandler = RunButtonClick;
+        if ( eventHandler != null ) {
+            eventHandler(this, me);
+        }
+    }
 
 
 //========================================================================
