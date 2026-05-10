@@ -81,7 +81,7 @@ public partial class SampleControl : UserControl
     {
         var eventHandler = RunButtonClick;
         if ( eventHandler != null ) {
-            eventHandler(this, me);
+            eventHandler(this, e);
         }
     }
 
