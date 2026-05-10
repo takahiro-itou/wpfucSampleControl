@@ -32,6 +32,20 @@ public partial class SampleControl : UserControl
     }
 
     //----------------------------------------------------------------
+    /**   OutputText  プロパティ
+    **
+    **/
+    [Browsable(true)
+      , Description("出力テキストボックスに表示する文字列")
+      , Category("表示")
+    ]
+    public System.String OutputText
+    {
+        get { return  txtInput.Text; }
+        set { txtInput.Text = value; }
+    }
+
+    //----------------------------------------------------------------
     /**   イベントハンドラ
     **
     **    「クリア」ボタンのクリックイベント。
