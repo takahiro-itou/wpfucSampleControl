@@ -47,8 +47,8 @@ public partial class SampleControl : UserControl
     ]
     public System.String OutputText
     {
-        get { return  txtInput.Text; }
-        set { txtInput.Text = value; }
+        get { return  txtOutput.Text; }
+        set { txtOutput.Text = value; }
     }
 
 
