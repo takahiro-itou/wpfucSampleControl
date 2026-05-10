@@ -109,6 +109,7 @@ public partial class SampleControl : UserControl
     **/
     private void btnRun_Click(object sender, EventArgs e)
     {
+        OnRunButtonClick(e);
     }
 
 }
