@@ -1,4 +1,5 @@
-﻿
+﻿//  -*-  coding: utf-8-with-signature;  mode: c++  -*-  //
+
 using System.ComponentModel;
 using System.Windows.Controls;
 
@@ -49,6 +50,19 @@ public partial class SampleControl : UserControl
     {
         get { return  txtOutput.Text; }
         set { txtOutput.Text = value; }
+    }
+
+    //----------------------------------------------------------------
+    /**   ViewModel プロパティ。
+    **
+    **/
+    public  ISampleView?  ViewModel
+    {
+        get { return  this.m_viewModel; }
+        set {
+            this.m_viewModel = value;
+            this.DataContext = value;
+        }
     }
 
 
@@ -111,6 +125,15 @@ public partial class SampleControl : UserControl
     {
         OnRunButtonClick(e);
     }
+
+
+//========================================================================
+//
+//    Member Variables.
+//
+
+    /**   ビューモデル。    **/
+    private ISampleViewModel?   m_viewModel;
 
 }
 
