@@ -6,7 +6,7 @@ using System.Windows.Controls;
 namespace WpfControl.Sample
 {
 
-public partial class SampleControl : UserControl
+public  partial class  SampleControl : UserControl
 {
 
     //----------------------------------------------------------------
@@ -56,7 +56,7 @@ public partial class SampleControl : UserControl
     /**   ViewModel プロパティ。
     **
     **/
-    public  ISampleView?  ViewModel
+    public  ISampleViewModel?  ViewModel
     {
         get { return  this.m_viewModel; }
         set {
@@ -135,6 +135,6 @@ public partial class SampleControl : UserControl
     /**   ビューモデル。    **/
     private ISampleViewModel?   m_viewModel;
 
-}
+}   //  End class SampleControl
 
 }   //  End of namespace  WpfControl.Sample
