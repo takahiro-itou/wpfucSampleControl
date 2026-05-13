@@ -22,7 +22,7 @@ namespace WpfControl.Sample
 //    ISampleViewModel  interface.
 //
 
-public interface ISampleViewModel
+public  interface  ISampleViewModel
 {
 
     //----------------------------------------------------------------
@@ -53,4 +53,6 @@ public interface ISampleViewModel
     public  System.String
     OutputText { get; set; }
 
-};
+}   //  End interface ISampleViewModel
+
+}   //  End of namespace  WpfControl.Sample
