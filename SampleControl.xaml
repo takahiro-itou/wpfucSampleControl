@@ -28,7 +28,7 @@
     <TextBox x:Name="txtInput"
         Grid.Row="0" Grid.Column="1"
         Margin="4,8,8,4"
-        Text=""
+        Text="{Binding InputText}"
     />
     <Label x:Name="Label2"
         Grid.Row="1" Grid.Column="0"
@@ -40,6 +40,7 @@
         Grid.Row="1" Grid.Column="1"
         IsReadOnly="True"
         Margin="4,4,8,4"
+        Text="{Binding OutputText}"
     />
 
     <StackPanel
@@ -52,12 +53,14 @@
           Margin="8,4,8,8"
           Width="96" Height="24"
           Click="btnRun_Click"
+          Command="{Binding RunButtonCommand}"
       />
       <Button x:Name="btnClear"
           Content="_Clear"
           Margin="4,4,8,8"
           Width="96" Height="24"
           Click="btnClear_Click"
+          Command="{Binding ClearButtonCommand}"
       />
     </StackPanel>
   </Grid>
