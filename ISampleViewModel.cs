@@ -51,7 +51,7 @@ public  interface  ISampleViewModel
     **
     **/
     public  System.String
-    OutputText { get; set; }
+    OutputText { get; }
 
 }   //  End interface ISampleViewModel
 
