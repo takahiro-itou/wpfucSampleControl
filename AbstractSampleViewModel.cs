@@ -14,7 +14,7 @@
 
 using System.Windows.Input;
 
-using WpfControl.Common
+using WpfControl.Common;
 
 
 namespace WpfControl.Sample
