@@ -14,6 +14,9 @@
 
 using System.Windows.Input;
 
+using WpfControl.Common
+
+
 namespace WpfControl.Sample
 {
 
@@ -21,9 +24,22 @@ namespace WpfControl.Sample
 //
 //    AbstractSampleViewModel  class.
 //
+//    このクラスは別リポジトリ WpfControlLibrary  にある
+//    Common.SimpleCommand  を利用します
+//
 
 public abstract class  AbstractSampleViewModel : ISampleViewModel
 {
+
+//========================================================================
+//
+//    Constructor(s) and Destructor.
+//
+
+//========================================================================
+//
+//    Public Properties (Implement Interface).
+//
 
     //----------------------------------------------------------------
     /**   「クリア」ボタン用のコマンドを取得するプロパティ。
