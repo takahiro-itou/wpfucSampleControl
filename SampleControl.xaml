@@ -40,7 +40,7 @@
         Grid.Row="1" Grid.Column="1"
         IsReadOnly="True"
         Margin="4,4,8,4"
-        Text="{Binding OutputText}"
+        Text="{Binding OutputText, Mode=OneWay}"
     />
 
     <StackPanel
