@@ -22,8 +22,49 @@ namespace WpfControl.Sample
 //    AbstractSampleViewModel  class.
 //
 
-public  abstract  class  AbstractSampleViewModel : ISampleViewModel
+public abstract class  AbstractSampleViewModel : ISampleViewModel
 {
+
+    //----------------------------------------------------------------
+    /**   「クリア」ボタン用のコマンドを取得するプロパティ。
+    **
+    **/
+    public  abstract  ICommand
+    ClearButtonCommand { get; }
+
+    //----------------------------------------------------------------
+    /**   「実行」ボタン用のコマンドを取得するプロパティ。
+    **
+    **/
+    public  abstract  ICommand
+    RunButtonCommand { get; }
+
+    //----------------------------------------------------------------
+    /**   「入力テキスト」プロパティ。
+    **
+    **/
+    public  System.String
+    InputText {
+        get { return  this.m_inputText; }
+        set { this.m_inputText = value; }
+    }
+
+    //----------------------------------------------------------------
+    /**   「出力テキスト」プロパティ。
+    **
+    **/
+    public  System.String
+    OutputText {
+        get { return  this.m_outputText; }
+    }
+
+//========================================================================
+//
+//    Member Variables.
+//
+
+    private System.String   m_inputText;
+    private System.String   m_outputText;
 
 }   //  End class AbstractSampleViewModel
 
