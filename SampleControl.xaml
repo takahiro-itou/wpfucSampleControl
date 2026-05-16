@@ -28,7 +28,7 @@
     <TextBox x:Name="txtInput"
         Grid.Row="0" Grid.Column="1"
         Margin="4,8,8,4"
-        Text="{Binding InputText}"
+        Text="{Binding InputText, UpdateSourceTrigger=PropertyChanged}"
     />
     <Label x:Name="Label2"
         Grid.Row="1" Grid.Column="0"
@@ -40,7 +40,7 @@
         Grid.Row="1" Grid.Column="1"
         IsReadOnly="True"
         Margin="4,4,8,4"
-        Text="{Binding OutputText}"
+        Text="{Binding OutputText, Mode=OneWay}"
     />
 
     <StackPanel
