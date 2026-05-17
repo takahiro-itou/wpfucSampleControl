@@ -89,6 +89,9 @@ public abstract class  AbstractSampleViewModel
     public  System.String
     OutputText {
         get { return  this.m_outputText; }
+        protected set {
+            this.m_outputText = value;
+        }
     }
 
     public  event PropertyChangedEventHandler?  PropertyChanged;
