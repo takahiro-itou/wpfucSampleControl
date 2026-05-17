@@ -107,8 +107,8 @@ public abstract class  AbstractSampleViewModel
 //    Member Variables.
 //
 
-    private System.String?  m_inputText;
-    private System.String?  m_outputText;
+    private System.String   m_inputText;
+    private System.String   m_outputText;
 
 }   //  End class AbstractSampleViewModel
 
