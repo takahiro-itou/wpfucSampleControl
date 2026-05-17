@@ -28,7 +28,8 @@ namespace WpfControl.Sample
 //    Common.SimpleCommand  を利用します
 //
 
-public abstract class  AbstractSampleViewModel : ISampleViewModel
+public abstract class  AbstractSampleViewModel
+        : INotifyPropertyChanged, ISampleViewModel
 {
 
 //========================================================================
