@@ -39,6 +39,16 @@ public abstract class  AbstractSampleViewModel
 //    Constructor(s) and Destructor.
 //
 
+    //----------------------------------------------------------------
+    /**   コンストラクタ。
+    **
+    **/
+    public  AbstractSampleViewModel()
+    {
+        this.m_inputText  = "";
+        this.m_outputText = "";
+    }
+
 //========================================================================
 //
 //    Public Properties (Implement Interface).
