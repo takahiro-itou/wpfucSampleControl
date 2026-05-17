@@ -62,8 +62,10 @@ public abstract class  AbstractSampleViewModel
     /**   「クリア」ボタン用のコマンドを取得するプロパティ。
     **
     **/
-    public  abstract  ICommand
-    ClearButtonCommand { get; }
+    public  ICommand
+    ClearButtonCommand {
+        get { return  this.m_clearButtonCommand; }
+    }
 
     //----------------------------------------------------------------
     /**   「実行」ボタン用のコマンドを取得するプロパティ。
@@ -102,7 +104,7 @@ public abstract class  AbstractSampleViewModel
 //    Protected Member Functions.
 //
 
-    protected void  OnOrpoertyChanged(
+    protected void  raisePrpoertyChanged(
             [CallerMemberName]  System.String?  propertyName = null)
     {
         PropertyChanged?.Invoke(
