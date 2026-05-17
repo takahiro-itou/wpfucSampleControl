@@ -76,6 +76,21 @@ public abstract class  AbstractSampleViewModel
         get { return  this.m_outputText; }
     }
 
+    public  event PropertyChangedEventHandler?  PropertyChanged;
+
+
+//========================================================================
+//
+//    Protected Member Functions.
+//
+
+    protected void OnOrpoertyChanged(
+            [CallerMemberName] System.String    propertyName = null)
+    {
+        PropertyChanged?.Invoke(
+                this, new PropertyChangedEventArgs(propertyName));
+    }
+
 //========================================================================
 //
 //    Member Variables.
