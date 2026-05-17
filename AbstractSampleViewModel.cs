@@ -12,6 +12,7 @@
 **                                                                      **
 *************************************************************************/
 
+using System.ComponentModel;
 using System.Windows.Input;
 
 using WpfControl.Common;
