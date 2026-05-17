@@ -45,6 +45,10 @@ public abstract class  AbstractSampleViewModel
     **/
     public  AbstractSampleViewModel()
     {
+        this.m_clearButtonCommand = new SimpleCommand(
+                parameter => executeClearButtonCommand()
+        );
+
         this.m_inputText  = "";
         this.m_outputText = "";
     }
@@ -95,11 +99,17 @@ public abstract class  AbstractSampleViewModel
 //    Protected Member Functions.
 //
 
-    protected void OnOrpoertyChanged(
+    protected void  OnOrpoertyChanged(
             [CallerMemberName]  System.String?  propertyName = null)
     {
         PropertyChanged?.Invoke(
                 this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    protected void  executeClearButtonCommand()
+    {
+        this.m_inputText    = "";
+        this.m_outputText   = "";
     }
 
 //========================================================================
@@ -109,6 +119,8 @@ public abstract class  AbstractSampleViewModel
 
     private System.String   m_inputText;
     private System.String   m_outputText;
+
+    private readonly SimpleCommand  m_clearButtonCommand;
 
 }   //  End class AbstractSampleViewModel
 
