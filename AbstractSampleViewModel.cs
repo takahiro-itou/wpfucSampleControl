@@ -96,7 +96,7 @@ public abstract class  AbstractSampleViewModel
 //
 
     protected void OnOrpoertyChanged(
-            [CallerMemberName] System.String    propertyName = null)
+            [CallerMemberName]  System.String?  propertyName = null)
     {
         PropertyChanged?.Invoke(
                 this, new PropertyChangedEventArgs(propertyName));
