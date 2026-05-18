@@ -108,7 +108,8 @@ public abstract class  AbstractSampleViewModel
     /**
     **
     **/
-    protected abstract  raiseCanExecuteChanged();
+    protected abstract  void
+    raiseCanExecuteChanged();
 
 
 //========================================================================
