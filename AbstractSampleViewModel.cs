@@ -101,6 +101,18 @@ public abstract class  AbstractSampleViewModel
 
 //========================================================================
 //
+//    Protected Member Functions (Pure Virtual Functions).
+//
+
+    //----------------------------------------------------------------
+    /**
+    **
+    **/
+    protected abstract  raiseCanExecuteChanged();
+
+
+//========================================================================
+//
 //    Protected Member Functions.
 //
 
