@@ -117,7 +117,7 @@ public abstract class  AbstractSampleViewModel
 //    Protected Member Functions.
 //
 
-    protected void  raisePrpoertyChanged(
+    protected void  raisePropertyChanged(
             [CallerMemberName]  System.String?  propertyName = null)
     {
         PropertyChanged?.Invoke(
