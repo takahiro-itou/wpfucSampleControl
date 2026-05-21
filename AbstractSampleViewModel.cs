@@ -45,6 +45,10 @@ public abstract class  AbstractSampleViewModel
     **/
     public  AbstractSampleViewModel()
     {
+        this.m_clearButtonCommand = new SimpleCommand(
+                parameter => executeClearButtonCommand()
+        );
+
         this.m_inputText  = "";
         this.m_outputText = "";
     }
@@ -58,8 +62,10 @@ public abstract class  AbstractSampleViewModel
     /**   「クリア」ボタン用のコマンドを取得するプロパティ。
     **
     **/
-    public  abstract  ICommand
-    ClearButtonCommand { get; }
+    public  ICommand
+    ClearButtonCommand {
+        get { return  this.m_clearButtonCommand; }
+    }
 
     //----------------------------------------------------------------
     /**   「実行」ボタン用のコマンドを取得するプロパティ。
@@ -75,7 +81,11 @@ public abstract class  AbstractSampleViewModel
     public  System.String
     InputText {
         get { return  this.m_inputText; }
-        set { this.m_inputText = value; }
+        set {
+            this.m_inputText = value;
+            raiseCanExecuteChanged();
+            raisePropertyChanged(nameof(InputText));
+        }
     }
 
     //----------------------------------------------------------------
@@ -85,6 +95,10 @@ public abstract class  AbstractSampleViewModel
     public  System.String
     OutputText {
         get { return  this.m_outputText; }
+        protected set {
+            this.m_outputText = value;
+            raisePropertyChanged(nameof(OutputText));
+        }
     }
 
     public  event PropertyChangedEventHandler?  PropertyChanged;
@@ -92,14 +106,33 @@ public abstract class  AbstractSampleViewModel
 
 //========================================================================
 //
+//    Protected Member Functions (Pure Virtual Functions).
+//
+
+    //----------------------------------------------------------------
+    /**
+    **
+    **/
+    protected abstract  void
+    raiseCanExecuteChanged();
+
+
+//========================================================================
+//
 //    Protected Member Functions.
 //
 
-    protected void OnOrpoertyChanged(
+    protected void  raisePropertyChanged(
             [CallerMemberName]  System.String?  propertyName = null)
     {
         PropertyChanged?.Invoke(
                 this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    protected void  executeClearButtonCommand()
+    {
+        this.InputText  = "";
+        this.OutputText = "";
     }
 
 //========================================================================
@@ -109,6 +142,8 @@ public abstract class  AbstractSampleViewModel
 
     private System.String   m_inputText;
     private System.String   m_outputText;
+
+    private readonly SimpleCommand  m_clearButtonCommand;
 
 }   //  End class AbstractSampleViewModel
 
