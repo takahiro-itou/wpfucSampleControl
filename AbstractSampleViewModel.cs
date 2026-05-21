@@ -131,10 +131,8 @@ public abstract class  AbstractSampleViewModel
 
     protected void  executeClearButtonCommand()
     {
-        this.m_inputText    = "";
-        this.m_outputText   = "";
-        raisePropertyChanged(nameof(InputText));
-        raisePropertyChanged(nameof(OutputText));
+        this.InputText  = "";
+        this.OutputText = "";
     }
 
 //========================================================================
