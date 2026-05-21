@@ -81,7 +81,11 @@ public abstract class  AbstractSampleViewModel
     public  System.String
     InputText {
         get { return  this.m_inputText; }
-        set { this.m_inputText = value; }
+        set {
+            this.m_inputText = value;
+            raiseCanExecuteChanged();
+            raisePropertyChanged(nameof(InputText));
+        }
     }
 
     //----------------------------------------------------------------
@@ -93,6 +97,7 @@ public abstract class  AbstractSampleViewModel
         get { return  this.m_outputText; }
         protected set {
             this.m_outputText = value;
+            raisePropertyChanged(nameof(OutputText));
         }
     }
 
@@ -128,6 +133,8 @@ public abstract class  AbstractSampleViewModel
     {
         this.m_inputText    = "";
         this.m_outputText   = "";
+        raisePropertyChanged(nameof(InputText));
+        raisePropertyChanged(nameof(OutputText));
     }
 
 //========================================================================
