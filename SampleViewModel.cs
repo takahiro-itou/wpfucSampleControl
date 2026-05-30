@@ -91,7 +91,7 @@ public abstract class  SampleViewModel
     public  System.String
     InputText {
         get { return  this.m_sampleModel.InputText; }
-        set { this.m_sampleModel.InputText = value; }
+        set { this.m_sampleModel.setInputText(value); }
     }
 
 /*
@@ -146,8 +146,6 @@ public abstract class  SampleViewModel
 
     protected void  executeClearButtonCommand()
     {
-        this.InputText  = "";
-        this.OutputText = "";
         this.m_sampleModel.clearTexts();
     }
 
