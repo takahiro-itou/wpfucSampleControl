@@ -24,6 +24,16 @@ namespace WpfControl.Sample
 public  interface  ISampleViewModel
 {
 
+    public  System.String   InputText  { get; set };
+    public  System.String   OutputText { get; private set; }
+
+    //----------------------------------------------------------------
+    /**   クリア動作を実行する。
+    **
+    **/
+    public  void
+    clearTexts();
+
     //----------------------------------------------------------------
     /**   適当な動作を実行する。
     **
@@ -31,4 +41,6 @@ public  interface  ISampleViewModel
     public  void
     executeCommand();
 
-}
+}   //  End interface ISampleModel
+
+}   //  End of namespace  WpfControl.Sample
