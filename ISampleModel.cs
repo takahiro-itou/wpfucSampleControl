@@ -24,8 +24,8 @@ namespace WpfControl.Sample
 public  interface  ISampleModel
 {
 
-    public  System.String   InputText  { get; set }
-    public  System.String   OutputText { get; private set; }
+    public  System.String   InputText  { get; set; }
+    public  System.String   OutputText { get; }
 
     //----------------------------------------------------------------
     /**   クリア動作を実行する。
