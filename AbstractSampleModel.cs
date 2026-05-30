@@ -24,7 +24,7 @@ namespace WpfControl.Sample
 //    Common.SimpleCommand  を利用します
 //
 
-public abstract class  SampleModel
+public abstract class  AbstractSampleModel
         : ISampleModel
 {
 
@@ -72,11 +72,31 @@ public abstract class  SampleModel
 //    Properties.
 //
 
-    public  System.String   InputText  { get; set; }
-    public  System.String   OutputText { get; protected set; }
+    public  System.String   InputText  { get; private set; }
+    public  System.String   OutputText { get; private set; }
 
     public  event  Action?  InputChanged;
     public  event  Action?  OutputChanged;
+
+
+//========================================================================
+//
+//    Accessors.
+//
+
+    public  void
+    setInputText(System.String  value)
+    {
+        this.InputText  = value;
+        notifyInputChanged();
+    }
+
+    public  void
+    setOutputText(System.String  value)
+    {
+        this.OutputText = value;
+        notifyOutputChanged();
+    }
 
 
 //========================================================================
