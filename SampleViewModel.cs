@@ -30,7 +30,7 @@ namespace WpfControl.Sample
 //    Common.SimpleCommand  を利用します
 //
 
-public abstract class  SampleViewModel
+public class  SampleViewModel
         : INotifyPropertyChanged, ISampleViewModel
 {
 
@@ -131,39 +131,49 @@ public abstract class  SampleViewModel
 //    Protected Member Functions (Pure Virtual Functions).
 //
 
-    //----------------------------------------------------------------
-    /**
-    **
-    **/
-    protected abstract  void
-    raiseCanExecuteChanged();
-
-
 //========================================================================
 //
 //    Protected Member Functions.
 //
 
-    protected void  executeClearButtonCommand()
+    protected  void
+    executeClearButtonCommand()
     {
         this.m_sampleModel.clearTexts();
     }
 
-    protected void  executeRunButtonCommand()
+    protected  void
+    executeRunButtonCommand()
     {
         this.m_sampleModel.executeCommand();
     }
 
-    protected void  OnInputChanged()
+    protected  void
+    OnInputChanged()
     {
         raisePropertyChanged(nameof(InputText));
     }
 
-    protected void  OnOutputChanged()
+    protected  void
+    OnOutputChanged()
     {
         raisePropertyChanged(nameof(OutputText));
     }
 
+    //----------------------------------------------------------------
+    /**
+    **
+    **/
+    protected  void
+    raiseCanExecuteChanged()
+    {
+        this.m_runButtonCommand.RaiseCanExecuteChanged();
+    }
+
+    //----------------------------------------------------------------
+    /**
+    **
+    **/
     protected void  raisePropertyChanged(
             [CallerMemberName]  System.String?  propertyName = null)
     {
