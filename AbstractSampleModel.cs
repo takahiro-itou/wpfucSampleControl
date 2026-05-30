@@ -85,6 +85,7 @@ public class  AbstractSampleModel
 //
 //    Protected Member Functions.
 //
+
     protected  void
     notifyInputChanged() => InputChanged?.Invoke();
 

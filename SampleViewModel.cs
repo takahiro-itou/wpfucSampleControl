@@ -80,12 +80,17 @@ public abstract class  SampleViewModel
     **
     **/
     public  abstract  ICommand
-    RunButtonCommand { get; }
+    RunButtonCommand {
+        get { return  this.m_runButtonCommand; }
+    }
 
     //----------------------------------------------------------------
     /**   「入力テキスト」プロパティ。
     **
     **/
+    public  System.String   InputText => this.m_sampleModel.InputText;
+
+/*
     public  System.String
     InputText {
         get { return  this.m_inputText; }
@@ -95,11 +100,14 @@ public abstract class  SampleViewModel
             raisePropertyChanged(nameof(InputText));
         }
     }
+*/
 
     //----------------------------------------------------------------
     /**   「出力テキスト」プロパティ。
     **
     **/
+    public  System.String   OutputText => this.m_sampleModel.OutputText;
+/*
     public  System.String
     OutputText {
         get { return  this.m_outputText; }
@@ -108,6 +116,7 @@ public abstract class  SampleViewModel
             raisePropertyChanged(nameof(OutputText));
         }
     }
+*/
 
     public  event PropertyChangedEventHandler?  PropertyChanged;
 
@@ -130,6 +139,28 @@ public abstract class  SampleViewModel
 //    Protected Member Functions.
 //
 
+    protected void  executeClearButtonCommand()
+    {
+        this.InputText  = "";
+        this.OutputText = "";
+        this.m_sampleModel.clearTexts();
+    }
+
+    protected void  executeRunButtonCommand()
+    {
+        this.m_sampleModel.executeCommand();
+    }
+
+    protected void  OnInputChanged()
+    {
+        raisePropertyChanged(nameof(InputText));
+    }
+
+    protected void  OnOutputChanged()
+    {
+        raisePropertyChanged(nameof(OutputText));
+    }
+
     protected void  raisePropertyChanged(
             [CallerMemberName]  System.String?  propertyName = null)
     {
@@ -137,11 +168,6 @@ public abstract class  SampleViewModel
                 this, new PropertyChangedEventArgs(propertyName));
     }
 
-    protected void  executeClearButtonCommand()
-    {
-        this.InputText  = "";
-        this.OutputText = "";
-    }
 
 //========================================================================
 //
