@@ -18,10 +18,10 @@ namespace WpfControl.Sample
 
 //========================================================================
 //
-//    ISampleViewModel  interface.
+//    ISampleModel  interface.
 //
 
-public  interface  ISampleViewModel
+public  interface  ISampleModel
 {
 
     public  System.String   InputText  { get; set }
