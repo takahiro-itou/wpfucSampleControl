@@ -24,7 +24,7 @@ namespace WpfControl.Sample
 public  interface  ISampleViewModel
 {
 
-    public  System.String   InputText  { get; set };
+    public  System.String   InputText  { get; set }
     public  System.String   OutputText { get; private set; }
 
     //----------------------------------------------------------------
