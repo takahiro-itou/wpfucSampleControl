@@ -48,6 +48,8 @@ public class  SampleViewModel
             ISampleModel    model)
     {
         this.m_sampleModel  = model;
+        this.m_sampleModel.InputChanged  += OnInputChanged();
+        this.m_sampleModel.OutputChanged += OnOutputChanged();
 
         this.m_runButtonCommand = new SimpleCommand(
                 parameter => executeRunButtonCommand(),
