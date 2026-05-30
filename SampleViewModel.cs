@@ -44,8 +44,15 @@ public abstract class  SampleViewModel
     **
     **/
     public
-    SampleViewModel()
+    SampleViewModel(
+            ISampleModel    model)
     {
+        this.m_sampleModel  = model;
+
+        this.m_runButtonCommand = new SimpleCommand(
+                parameter => executeRunButtonCommand(),
+                parameter => this.m_sampleModel.canExecute()
+        );
         this.m_clearButtonCommand = new SimpleCommand(
                 parameter => executeClearButtonCommand()
         );
@@ -141,10 +148,13 @@ public abstract class  SampleViewModel
 //    Member Variables.
 //
 
+    private readonly  ISampleModel  m_sampleModel;
+
     private System.String   m_inputText;
     private System.String   m_outputText;
 
     private readonly SimpleCommand  m_clearButtonCommand;
+    private readonly SimpleCommand  m_runButtonCommand;
 
 }   //  End class SampleViewModel
 
