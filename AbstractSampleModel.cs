@@ -77,6 +77,20 @@ public class  AbstractSampleModel
     public  System.String   InputText  { get; set; }
     public  System.String   OutputText { get; private set; }
 
+    public  event  Action?  InputChanged;
+    public  event  Action?  OutputChanged;
+
+
+//========================================================================
+//
+//    Protected Member Functions.
+//
+    protected  void
+    notifyInputChanged() => InputChanged?.Invoke();
+
+    protected  void
+    notifyOutputChanged() => OutputChanged?.Invoke();
+
 }   //  End class AbstractSampleModel
 
 }   //  End of namespace  WpfControl.Sample

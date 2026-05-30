@@ -27,6 +27,9 @@ public  interface  ISampleModel
     public  System.String   InputText  { get; set; }
     public  System.String   OutputText { get; }
 
+    public  event  Action?  InputChanged;
+    public  event  Action?  OutputChanged;
+
     //----------------------------------------------------------------
     /**   コマンドを実行可能か判定する。
     **
