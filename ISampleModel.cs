@@ -23,4 +23,12 @@ namespace WpfControl.Sample
 
 public  interface  ISampleViewModel
 {
+
+    //----------------------------------------------------------------
+    /**   適当な動作を実行する。
+    **
+    **/
+    public  void
+    executeCommand();
+
 }
