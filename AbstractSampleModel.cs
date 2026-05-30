@@ -28,6 +28,9 @@ public class  AbstractSampleModel
         : ISampleModel
 {
 
+    public  System.String   InputText  { get; set; }
+    public  System.String   OutputText { get; private set; }
+
     //----------------------------------------------------------------
     /**   クリア動作を実行する。
     **
