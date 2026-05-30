@@ -70,7 +70,7 @@ public abstract class  SampleViewModel
     /**   「クリア」ボタン用のコマンドを取得するプロパティ。
     **
     **/
-    public  ICommand
+    public  virtual  ICommand
     ClearButtonCommand {
         get { return  this.m_clearButtonCommand; }
     }
@@ -79,7 +79,7 @@ public abstract class  SampleViewModel
     /**   「実行」ボタン用のコマンドを取得するプロパティ。
     **
     **/
-    public  abstract  ICommand
+    public  virtual ICommand
     RunButtonCommand {
         get { return  this.m_runButtonCommand; }
     }
@@ -88,7 +88,11 @@ public abstract class  SampleViewModel
     /**   「入力テキスト」プロパティ。
     **
     **/
-    public  System.String   InputText => this.m_sampleModel.InputText;
+    public  System.String
+    InputText {
+        get { return  this.m_sampleModel.InputText; }
+        set { this.m_sampleModel.InputText = value; }
+    }
 
 /*
     public  System.String
@@ -106,7 +110,8 @@ public abstract class  SampleViewModel
     /**   「出力テキスト」プロパティ。
     **
     **/
-    public  System.String   OutputText => this.m_sampleModel.OutputText;
+    public  System.String
+    OutputText => this.m_sampleModel.OutputText;
 /*
     public  System.String
     OutputText {

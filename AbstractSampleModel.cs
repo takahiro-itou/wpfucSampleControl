@@ -24,7 +24,7 @@ namespace WpfControl.Sample
 //    Common.SimpleCommand  を利用します
 //
 
-public class  AbstractSampleModel
+public abstract class  SampleModel
         : ISampleModel
 {
 
@@ -42,7 +42,7 @@ public class  AbstractSampleModel
     /**   コマンドを実行可能か判定する。
     **
     **/
-    public  bool
+    public  virtual  bool
     canExecute()
     {
         return ( this.InputText != "" );
@@ -52,7 +52,7 @@ public class  AbstractSampleModel
     /**   クリア動作を実行する。
     **
     **/
-    public  void
+    public  virtual  void
     clearTexts()
     {
         this.InputText  = "";
@@ -63,10 +63,8 @@ public class  AbstractSampleModel
     /**   適当な動作を実行する。
     **
     **/
-    public  void
-    executeCommand()
-    {
-    }
+    public  abstract  void
+    executeCommand();
 
 
 //========================================================================
@@ -75,7 +73,7 @@ public class  AbstractSampleModel
 //
 
     public  System.String   InputText  { get; set; }
-    public  System.String   OutputText { get; private set; }
+    public  System.String   OutputText { get; protected set; }
 
     public  event  Action?  InputChanged;
     public  event  Action?  OutputChanged;
