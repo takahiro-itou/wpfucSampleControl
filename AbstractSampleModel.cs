@@ -28,8 +28,15 @@ public class  AbstractSampleModel
         : ISampleModel
 {
 
-    public  System.String   InputText  { get; set; }
-    public  System.String   OutputText { get; private set; }
+    //----------------------------------------------------------------
+    /**   コンストラクタ。
+    **
+    **/
+    public  AbstractSampleModel()
+    {
+        this.InputText  = "";
+        this.OutputText = "";
+    }
 
     //----------------------------------------------------------------
     /**   クリア動作を実行する。
@@ -50,6 +57,15 @@ public class  AbstractSampleModel
     executeCommand()
     {
     }
+
+
+//========================================================================
+//
+//    Properties.
+//
+
+    public  System.String   InputText  { get; set; }
+    public  System.String   OutputText { get; private set; }
 
 }   //  End class AbstractSampleModel
 
