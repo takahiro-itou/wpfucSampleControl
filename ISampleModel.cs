@@ -1,4 +1,4 @@
-﻿//  -*-  coding: utf-8-with-signature;  mode: c++  -*-  //
+﻿//  -*-  coding: utf-8-with-signature-unix;        -*-  //
 /*************************************************************************
 **                                                                      **
 **                  ---  WPF UserControl Library.  ---                  **
@@ -11,3 +11,16 @@
 **          or (at your option) any later version.                      **
 **                                                                      **
 *************************************************************************/
+
+
+namespace WpfControl.Sample
+{
+
+//========================================================================
+//
+//    ISampleViewModel  interface.
+//
+
+public  interface  ISampleViewModel
+{
+}
