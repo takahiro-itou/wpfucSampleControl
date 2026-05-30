@@ -57,6 +57,8 @@ public abstract class  AbstractSampleModel
     {
         this.InputText  = "";
         this.OutputText = "";
+        notifyInputChanged();
+        notifyOutputChanged();
     }
 
     //----------------------------------------------------------------

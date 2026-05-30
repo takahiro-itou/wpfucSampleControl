@@ -90,7 +90,10 @@ public class  SampleViewModel
     public  System.String
     InputText {
         get { return  this.m_sampleModel.InputText; }
-        set { this.m_sampleModel.setInputText(value); }
+        set {
+            this.m_sampleModel.setInputText(value);
+            raiseCanExecuteChanged();
+        }
     }
 
 /*
