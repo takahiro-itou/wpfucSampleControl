@@ -24,13 +24,13 @@ namespace WpfControl.Sample
 
 //========================================================================
 //
-//    AbstractSampleViewModel  class.
+//    SampleViewModel  class.
 //
 //    このクラスは別リポジトリ WpfControlLibrary  にある
 //    Common.SimpleCommand  を利用します
 //
 
-public abstract class  AbstractSampleViewModel
+public abstract class  SampleViewModel
         : INotifyPropertyChanged, ISampleViewModel
 {
 
@@ -43,7 +43,8 @@ public abstract class  AbstractSampleViewModel
     /**   コンストラクタ。
     **
     **/
-    public  AbstractSampleViewModel()
+    public
+    SampleViewModel()
     {
         this.m_clearButtonCommand = new SimpleCommand(
                 parameter => executeClearButtonCommand()
@@ -145,6 +146,6 @@ public abstract class  AbstractSampleViewModel
 
     private readonly SimpleCommand  m_clearButtonCommand;
 
-}   //  End class AbstractSampleViewModel
+}   //  End class SampleViewModel
 
 }   //  End of namespace  WpfControl.Sample
