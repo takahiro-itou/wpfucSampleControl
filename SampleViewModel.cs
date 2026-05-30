@@ -48,8 +48,8 @@ public class  SampleViewModel
             ISampleModel    model)
     {
         this.m_sampleModel  = model;
-        this.m_sampleModel.InputChanged  += OnInputChanged();
-        this.m_sampleModel.OutputChanged += OnOutputChanged();
+        this.m_sampleModel.InputChanged  += OnInputChanged;
+        this.m_sampleModel.OutputChanged += OnOutputChanged;
 
         this.m_runButtonCommand = new SimpleCommand(
                 parameter => executeRunButtonCommand(),
@@ -58,9 +58,6 @@ public class  SampleViewModel
         this.m_clearButtonCommand = new SimpleCommand(
                 parameter => executeClearButtonCommand()
         );
-
-        this.m_inputText  = "";
-        this.m_outputText = "";
     }
 
 //========================================================================
@@ -190,9 +187,6 @@ public class  SampleViewModel
 //
 
     private readonly  ISampleModel  m_sampleModel;
-
-    private System.String   m_inputText;
-    private System.String   m_outputText;
 
     private readonly SimpleCommand  m_clearButtonCommand;
     private readonly SimpleCommand  m_runButtonCommand;
