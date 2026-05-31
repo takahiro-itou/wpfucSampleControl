@@ -96,35 +96,17 @@ public class  SampleViewModel
         }
     }
 
-/*
-    public  System.String
-    InputText {
-        get { return  this.m_inputText; }
-        set {
-            this.m_inputText = value;
-            raiseCanExecuteChanged();
-            raisePropertyChanged(nameof(InputText));
-        }
-    }
-*/
-
     //----------------------------------------------------------------
     /**   「出力テキスト」プロパティ。
     **
     **/
     public  System.String
     OutputText => this.m_sampleModel.OutputText;
-/*
-    public  System.String
-    OutputText {
-        get { return  this.m_outputText; }
-        protected set {
-            this.m_outputText = value;
-            raisePropertyChanged(nameof(OutputText));
-        }
-    }
-*/
 
+    //----------------------------------------------------------------
+    /**
+    **
+    **/
     public  event PropertyChangedEventHandler?  PropertyChanged;
 
 
