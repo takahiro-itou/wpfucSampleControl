@@ -1,4 +1,4 @@
-﻿//  -*-  coding: utf-8-with-signature;  mode: c++  -*-  //
+﻿//  -*-  coding: utf-8-with-signature-unix;        -*-  //
 /*************************************************************************
 **                                                                      **
 **                  ---  WPF UserControl Library.  ---                  **
@@ -24,13 +24,13 @@ namespace WpfControl.Sample
 
 //========================================================================
 //
-//    AbstractSampleViewModel  class.
+//    SampleViewModel  class.
 //
 //    このクラスは別リポジトリ WpfControlLibrary  にある
 //    Common.SimpleCommand  を利用します
 //
 
-public abstract class  AbstractSampleViewModel
+public class  SampleViewModel
         : INotifyPropertyChanged, ISampleViewModel
 {
 
@@ -43,14 +43,21 @@ public abstract class  AbstractSampleViewModel
     /**   コンストラクタ。
     **
     **/
-    public  AbstractSampleViewModel()
+    public
+    SampleViewModel(
+            ISampleModel    model)
     {
+        this.m_sampleModel  = model;
+        this.m_sampleModel.InputChanged  += OnInputChanged;
+        this.m_sampleModel.OutputChanged += OnOutputChanged;
+
+        this.m_runButtonCommand = new SimpleCommand(
+                parameter => executeRunButtonCommand(),
+                parameter => this.m_sampleModel.canExecute()
+        );
         this.m_clearButtonCommand = new SimpleCommand(
                 parameter => executeClearButtonCommand()
         );
-
-        this.m_inputText  = "";
-        this.m_outputText = "";
     }
 
 //========================================================================
@@ -62,7 +69,7 @@ public abstract class  AbstractSampleViewModel
     /**   「クリア」ボタン用のコマンドを取得するプロパティ。
     **
     **/
-    public  ICommand
+    public  virtual  ICommand
     ClearButtonCommand {
         get { return  this.m_clearButtonCommand; }
     }
@@ -71,8 +78,10 @@ public abstract class  AbstractSampleViewModel
     /**   「実行」ボタン用のコマンドを取得するプロパティ。
     **
     **/
-    public  abstract  ICommand
-    RunButtonCommand { get; }
+    public  virtual ICommand
+    RunButtonCommand {
+        get { return  this.m_runButtonCommand; }
+    }
 
     //----------------------------------------------------------------
     /**   「入力テキスト」プロパティ。
@@ -80,11 +89,10 @@ public abstract class  AbstractSampleViewModel
     **/
     public  System.String
     InputText {
-        get { return  this.m_inputText; }
+        get { return  this.m_sampleModel.InputText; }
         set {
-            this.m_inputText = value;
+            this.m_sampleModel.setInputText(value);
             raiseCanExecuteChanged();
-            raisePropertyChanged(nameof(InputText));
         }
     }
 
@@ -93,14 +101,12 @@ public abstract class  AbstractSampleViewModel
     **
     **/
     public  System.String
-    OutputText {
-        get { return  this.m_outputText; }
-        protected set {
-            this.m_outputText = value;
-            raisePropertyChanged(nameof(OutputText));
-        }
-    }
+    OutputText => this.m_sampleModel.OutputText;
 
+    //----------------------------------------------------------------
+    /**
+    **
+    **/
     public  event PropertyChangedEventHandler?  PropertyChanged;
 
 
@@ -109,19 +115,49 @@ public abstract class  AbstractSampleViewModel
 //    Protected Member Functions (Pure Virtual Functions).
 //
 
-    //----------------------------------------------------------------
-    /**
-    **
-    **/
-    protected abstract  void
-    raiseCanExecuteChanged();
-
-
 //========================================================================
 //
 //    Protected Member Functions.
 //
 
+    protected  void
+    executeClearButtonCommand()
+    {
+        this.m_sampleModel.clearTexts();
+    }
+
+    protected  void
+    executeRunButtonCommand()
+    {
+        this.m_sampleModel.executeCommand();
+    }
+
+    protected  void
+    OnInputChanged()
+    {
+        raisePropertyChanged(nameof(InputText));
+    }
+
+    protected  void
+    OnOutputChanged()
+    {
+        raisePropertyChanged(nameof(OutputText));
+    }
+
+    //----------------------------------------------------------------
+    /**
+    **
+    **/
+    protected  void
+    raiseCanExecuteChanged()
+    {
+        this.m_runButtonCommand.RaiseCanExecuteChanged();
+    }
+
+    //----------------------------------------------------------------
+    /**
+    **
+    **/
     protected void  raisePropertyChanged(
             [CallerMemberName]  System.String?  propertyName = null)
     {
@@ -129,22 +165,17 @@ public abstract class  AbstractSampleViewModel
                 this, new PropertyChangedEventArgs(propertyName));
     }
 
-    protected void  executeClearButtonCommand()
-    {
-        this.InputText  = "";
-        this.OutputText = "";
-    }
 
 //========================================================================
 //
 //    Member Variables.
 //
 
-    private System.String   m_inputText;
-    private System.String   m_outputText;
+    private readonly  ISampleModel  m_sampleModel;
 
     private readonly SimpleCommand  m_clearButtonCommand;
+    private readonly SimpleCommand  m_runButtonCommand;
 
-}   //  End class AbstractSampleViewModel
+}   //  End class SampleViewModel
 
 }   //  End of namespace  WpfControl.Sample
