@@ -12,47 +12,63 @@
 **                                                                      **
 *************************************************************************/
 
-using System.Windows.Input;
 
 namespace WpfControl.Sample
 {
 
 //========================================================================
 //
-//    ISampleViewModel  interface.
+//    ISampleModel  interface.
 //
 
-public  interface  ISampleViewModel
+public  interface  ISampleModel
 {
 
     //----------------------------------------------------------------
-    /**   「クリア」ボタン用のコマンドを取得するプロパティ。
+    /**   コマンドを実行可能か判定する。
     **
     **/
-    public  ICommand
-    ClearButtonCommand { get; }
+    public  bool
+    canExecute();
 
     //----------------------------------------------------------------
-    /**   「実行」ボタン用のコマンドを取得するプロパティ。
+    /**   クリア動作を実行する。
     **
     **/
-    public  ICommand
-    RunButtonCommand { get; }
+    public  void
+    clearTexts();
 
     //----------------------------------------------------------------
-    /**   「入力テキスト」プロパティ。
+    /**   適当な動作を実行する。
     **
     **/
-    public  System.String
-    InputText { get; set; }
+    public  void
+    executeCommand();
 
-    //----------------------------------------------------------------
-    /**   「出力テキスト」プロパティ。
-    **
-    **/
-    public  System.String
-    OutputText { get; }
 
-}   //  End interface ISampleViewModel
+//========================================================================
+//
+//    Properties.
+//
+
+    public  System.String   InputText  { get; }
+    public  System.String   OutputText { get; }
+
+    public  event  Action?  InputChanged;
+    public  event  Action?  OutputChanged;
+
+
+//========================================================================
+//
+//    Accessors.
+//
+
+    public  void
+    setInputText(System.String  value);
+
+    public  void
+    setOutputText(System.String  value);
+
+}   //  End interface ISampleModel
 
 }   //  End of namespace  WpfControl.Sample
