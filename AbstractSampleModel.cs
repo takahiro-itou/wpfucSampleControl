@@ -32,7 +32,8 @@ public abstract class  AbstractSampleModel
     /**   コンストラクタ。
     **
     **/
-    public  AbstractSampleModel()
+    public
+    AbstractSampleModel()
     {
         this.InputText  = "";
         this.OutputText = "";
@@ -106,10 +107,10 @@ public abstract class  AbstractSampleModel
 //    Protected Member Functions.
 //
 
-    protected  void
+    protected  virtual  void
     notifyInputChanged() => InputChanged?.Invoke();
 
-    protected  void
+    protected  virtual  void
     notifyOutputChanged() => OutputChanged?.Invoke();
 
 }   //  End class AbstractSampleModel
