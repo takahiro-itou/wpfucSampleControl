@@ -78,7 +78,7 @@ public class  SampleViewModel
     /**   「実行」ボタン用のコマンドを取得するプロパティ。
     **
     **/
-    public  virtual ICommand
+    public  virtual  ICommand
     RunButtonCommand {
         get { return  this.m_runButtonCommand; }
     }
@@ -120,25 +120,25 @@ public class  SampleViewModel
 //    Protected Member Functions.
 //
 
-    protected  void
+    protected  virtual  void
     executeClearButtonCommand()
     {
         this.m_sampleModel.clearTexts();
     }
 
-    protected  void
+    protected  virtual  void
     executeRunButtonCommand()
     {
         this.m_sampleModel.executeCommand();
     }
 
-    protected  void
+    protected  virtual  void
     OnInputChanged()
     {
         raisePropertyChanged(nameof(InputText));
     }
 
-    protected  void
+    protected  virtual  void
     OnOutputChanged()
     {
         raisePropertyChanged(nameof(OutputText));
@@ -148,7 +148,7 @@ public class  SampleViewModel
     /**
     **
     **/
-    protected  void
+    protected  virtual  void
     raiseCanExecuteChanged()
     {
         this.m_runButtonCommand.RaiseCanExecuteChanged();
@@ -158,7 +158,8 @@ public class  SampleViewModel
     /**
     **
     **/
-    protected void  raisePropertyChanged(
+    protected  virtual  void
+    raisePropertyChanged(
             [CallerMemberName]  System.String?  propertyName = null)
     {
         PropertyChanged?.Invoke(
