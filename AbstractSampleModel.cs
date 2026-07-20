@@ -108,10 +108,17 @@ public abstract class  AbstractSampleModel
 //
 
     protected  virtual  void
-    notifyInputChanged() => InputChanged?.Invoke();
+    notifyInputChanged()
+    {
+        InputChanged?.Invoke();
+    }
 
     protected  virtual  void
-    notifyOutputChanged() => OutputChanged?.Invoke();
+    notifyOutputChanged()
+    {
+        OutputChanged?.Invoke();
+    }
+
 
 }   //  End class AbstractSampleModel
 

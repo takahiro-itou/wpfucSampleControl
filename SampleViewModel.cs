@@ -136,6 +136,7 @@ public class  SampleViewModel
     OnInputChanged()
     {
         raisePropertyChanged(nameof(InputText));
+        raiseCanExecuteChanged();
     }
 
     protected  virtual  void
