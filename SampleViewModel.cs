@@ -51,11 +51,11 @@ SampleViewModel(
     this.m_sampleModel.InputChanged  += OnInputChanged;
     this.m_sampleModel.OutputChanged += OnOutputChanged;
 
-    this.m_runButtonCommand = new SimpleCommand(
+    this.m_runButtonCommand = new SimpleCommand<int>(
             parameter => executeRunButtonCommand(),
             parameter => this.m_sampleModel.canExecute()
     );
-    this.m_clearButtonCommand = new SimpleCommand(
+    this.m_clearButtonCommand = new SimpleCommand<int>(
             parameter => executeClearButtonCommand()
     );
 }
