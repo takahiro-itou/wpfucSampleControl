@@ -174,10 +174,10 @@ raisePropertyChanged(
 //    Member Variables.
 //
 
-private  readonly   ISampleModel    m_sampleModel;
+private  readonly   ISampleModel        m_sampleModel;
 
-private  readonly   SimpleCommand   m_clearButtonCommand;
-private  readonly   SimpleCommand   m_runButtonCommand;
+private  readonly   SimpleCommand<int>  m_clearButtonCommand;
+private  readonly   SimpleCommand<int>  m_runButtonCommand;
 
 }   //  End class SampleViewModel
 
