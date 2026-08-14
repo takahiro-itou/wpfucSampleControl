@@ -1,4 +1,4 @@
-﻿//  -*-  coding: utf-8-with-signature-unix;        -*-  //
+﻿//  -*-  coding: utf-8-with-signature  -*-  //
 /*************************************************************************
 **                                                                      **
 **                  ---  WPF UserControl Library.  ---                  **
@@ -39,75 +39,76 @@ public class  SampleViewModel
 //    Constructor(s) and Destructor.
 //
 
-    //----------------------------------------------------------------
-    /**   コンストラクタ。
-    **
-    **/
-    public
-    SampleViewModel(
-            ISampleModel    model)
-    {
-        this.m_sampleModel  = model;
-        this.m_sampleModel.InputChanged  += OnInputChanged;
-        this.m_sampleModel.OutputChanged += OnOutputChanged;
+//----------------------------------------------------------------
+/**   コンストラクタ。
+**
+**/
+public
+SampleViewModel(
+        ISampleModel    model)
+{
+    this.m_sampleModel  = model;
+    this.m_sampleModel.InputChanged  += OnInputChanged;
+    this.m_sampleModel.OutputChanged += OnOutputChanged;
 
-        this.m_runButtonCommand = new SimpleCommand(
-                parameter => executeRunButtonCommand(),
-                parameter => this.m_sampleModel.canExecute()
-        );
-        this.m_clearButtonCommand = new SimpleCommand(
-                parameter => executeClearButtonCommand()
-        );
-    }
+    this.m_runButtonCommand = new SimpleCommand<int>(
+            parameter => executeRunButtonCommand(),
+            parameter => this.m_sampleModel.canExecute()
+    );
+    this.m_clearButtonCommand = new SimpleCommand<int>(
+            parameter => executeClearButtonCommand()
+    );
+}
+
 
 //========================================================================
 //
 //    Public Properties (Implement Interface).
 //
 
-    //----------------------------------------------------------------
-    /**   「クリア」ボタン用のコマンドを取得するプロパティ。
-    **
-    **/
-    public  virtual  ICommand
-    ClearButtonCommand {
-        get { return  this.m_clearButtonCommand; }
+//----------------------------------------------------------------
+/**   「クリア」ボタン用のコマンドを取得するプロパティ。
+**
+**/
+public  virtual  ICommand
+ClearButtonCommand {
+    get { return  this.m_clearButtonCommand; }
+}
+
+//----------------------------------------------------------------
+/**   「実行」ボタン用のコマンドを取得するプロパティ。
+**
+**/
+public  virtual  ICommand
+RunButtonCommand {
+    get { return  this.m_runButtonCommand; }
+}
+
+//----------------------------------------------------------------
+/**   「入力テキスト」プロパティ。
+**
+**/
+public  System.String
+InputText {
+    get { return  this.m_sampleModel.InputText; }
+    set {
+        this.m_sampleModel.setInputText(value);
+        raiseCanExecuteChanged();
     }
+}
 
-    //----------------------------------------------------------------
-    /**   「実行」ボタン用のコマンドを取得するプロパティ。
-    **
-    **/
-    public  virtual  ICommand
-    RunButtonCommand {
-        get { return  this.m_runButtonCommand; }
-    }
+//----------------------------------------------------------------
+/**   「出力テキスト」プロパティ。
+**
+**/
+public  System.String
+OutputText => this.m_sampleModel.OutputText;
 
-    //----------------------------------------------------------------
-    /**   「入力テキスト」プロパティ。
-    **
-    **/
-    public  System.String
-    InputText {
-        get { return  this.m_sampleModel.InputText; }
-        set {
-            this.m_sampleModel.setInputText(value);
-            raiseCanExecuteChanged();
-        }
-    }
-
-    //----------------------------------------------------------------
-    /**   「出力テキスト」プロパティ。
-    **
-    **/
-    public  System.String
-    OutputText => this.m_sampleModel.OutputText;
-
-    //----------------------------------------------------------------
-    /**
-    **
-    **/
-    public  event PropertyChangedEventHandler?  PropertyChanged;
+//----------------------------------------------------------------
+/**
+**
+**/
+public  event PropertyChangedEventHandler?  PropertyChanged;
 
 
 //========================================================================
@@ -120,52 +121,52 @@ public class  SampleViewModel
 //    Protected Member Functions.
 //
 
-    protected  virtual  void
-    executeClearButtonCommand()
-    {
-        this.m_sampleModel.clearTexts();
-    }
+protected  virtual  void
+executeClearButtonCommand()
+{
+    this.m_sampleModel.clearTexts();
+}
 
-    protected  virtual  void
-    executeRunButtonCommand()
-    {
-        this.m_sampleModel.executeCommand();
-    }
+protected  virtual  void
+executeRunButtonCommand()
+{
+    this.m_sampleModel.executeCommand();
+}
 
-    protected  virtual  void
-    OnInputChanged()
-    {
-        raisePropertyChanged(nameof(InputText));
-        raiseCanExecuteChanged();
-    }
+protected  virtual  void
+OnInputChanged()
+{
+    raisePropertyChanged(nameof(InputText));
+    raiseCanExecuteChanged();
+}
 
-    protected  virtual  void
-    OnOutputChanged()
-    {
-        raisePropertyChanged(nameof(OutputText));
-    }
+protected  virtual  void
+OnOutputChanged()
+{
+    raisePropertyChanged(nameof(OutputText));
+}
 
-    //----------------------------------------------------------------
-    /**
-    **
-    **/
-    protected  virtual  void
-    raiseCanExecuteChanged()
-    {
-        this.m_runButtonCommand.RaiseCanExecuteChanged();
-    }
+//----------------------------------------------------------------
+/**
+**
+**/
+protected  virtual  void
+raiseCanExecuteChanged()
+{
+    this.m_runButtonCommand.RaiseCanExecuteChanged();
+}
 
-    //----------------------------------------------------------------
-    /**
-    **
-    **/
-    protected  virtual  void
-    raisePropertyChanged(
-            [CallerMemberName]  System.String?  propertyName = null)
-    {
-        PropertyChanged?.Invoke(
-                this, new PropertyChangedEventArgs(propertyName));
-    }
+//----------------------------------------------------------------
+/**
+**
+**/
+protected  virtual  void
+raisePropertyChanged(
+        [CallerMemberName]  System.String?  propertyName = null)
+{
+    PropertyChanged?.Invoke(
+            this, new PropertyChangedEventArgs(propertyName));
+}
 
 
 //========================================================================
@@ -173,10 +174,10 @@ public class  SampleViewModel
 //    Member Variables.
 //
 
-    private readonly  ISampleModel  m_sampleModel;
+private  readonly   ISampleModel        m_sampleModel;
 
-    private readonly SimpleCommand  m_clearButtonCommand;
-    private readonly SimpleCommand  m_runButtonCommand;
+private  readonly   SimpleCommand<int>  m_clearButtonCommand;
+private  readonly   SimpleCommand<int>  m_runButtonCommand;
 
 }   //  End class SampleViewModel
 
