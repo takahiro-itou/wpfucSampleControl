@@ -153,7 +153,7 @@ OnOutputChanged()
 protected  virtual  void
 raiseCanExecuteChanged()
 {
-    this.m_runButtonCommand.raiseCanExecuteChangedEvent();
+    this.m_runButtonCommand.raiseCanExecuteChanged();
 }
 
 //----------------------------------------------------------------
