@@ -108,7 +108,7 @@ OutputText => this.m_sampleModel.OutputText;
 /**
 **
 **/
-public  event PropertyChangedEventHandler?  PropertyChanged;
+public  event   PropertyChangedEventHandler?    PropertyChanged;
 
 
 //========================================================================
@@ -153,7 +153,7 @@ OnOutputChanged()
 protected  virtual  void
 raiseCanExecuteChanged()
 {
-    this.m_runButtonCommand.RaiseCanExecuteChanged();
+    this.m_runButtonCommand.raiseCanExecuteChanged();
 }
 
 //----------------------------------------------------------------
