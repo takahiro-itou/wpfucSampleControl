@@ -1,4 +1,4 @@
-﻿//  -*-  coding: utf-8-with-signature  -*-  //
+﻿//  -*-  coding: utf-8-with-signature-unix     -*-  //
 /*************************************************************************
 **                                                                      **
 **                  ---  WPF UserControl Library.  ---                  **
@@ -12,22 +12,19 @@
 **                                                                      **
 *************************************************************************/
 
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
-
-using WpfControl.Common;
+using   System.ComponentModel;
+using   System.Runtime.CompilerServices;
+using   System.Windows.Input;
 
 
-namespace WpfControl.Sample
-{
+namespace  WpfControl.Sample  {
 
 //========================================================================
 //
 //    SampleViewModel  class.
 //
-//    このクラスは別リポジトリ WpfControlLibrary  にある
-//    Common.SimpleCommand  を利用します
+//    このクラスは別リポジトリ  WpfHelper にある
+//    抽象クラス ViewModels.ViewModelBase を利用します
 //
 
 public class  SampleViewModel
@@ -43,6 +40,7 @@ public class  SampleViewModel
 /**   コンストラクタ。
 **
 **/
+
 public
 SampleViewModel(
         ISampleModel    model)
@@ -70,6 +68,7 @@ SampleViewModel(
 /**   「クリア」ボタン用のコマンドを取得するプロパティ。
 **
 **/
+
 public  virtual  ICommand
 ClearButtonCommand {
     get { return  this.m_clearButtonCommand; }
@@ -79,6 +78,7 @@ ClearButtonCommand {
 /**   「実行」ボタン用のコマンドを取得するプロパティ。
 **
 **/
+
 public  virtual  ICommand
 RunButtonCommand {
     get { return  this.m_runButtonCommand; }
@@ -88,6 +88,7 @@ RunButtonCommand {
 /**   「入力テキスト」プロパティ。
 **
 **/
+
 public  System.String
 InputText {
     get { return  this.m_sampleModel.InputText; }
@@ -101,6 +102,7 @@ InputText {
 /**   「出力テキスト」プロパティ。
 **
 **/
+
 public  System.String
 OutputText => this.m_sampleModel.OutputText;
 
@@ -108,6 +110,7 @@ OutputText => this.m_sampleModel.OutputText;
 /**
 **
 **/
+
 public  event   PropertyChangedEventHandler?    PropertyChanged;
 
 
@@ -179,6 +182,6 @@ private  readonly   ISampleModel        m_sampleModel;
 private  readonly   SimpleCommand<int>  m_clearButtonCommand;
 private  readonly   SimpleCommand<int>  m_runButtonCommand;
 
-}   //  End class SampleViewModel
+}   //  End of class  SampleViewModel
 
 }   //  End of namespace  WpfControl.Sample
