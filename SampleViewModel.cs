@@ -16,6 +16,9 @@ using   System.ComponentModel;
 using   System.Runtime.CompilerServices;
 using   System.Windows.Input;
 
+using   WpfHelper.Commands;
+using   WpfHelper.ViewModels;
+
 
 namespace  WpfControl.Sample  {
 
@@ -27,8 +30,8 @@ namespace  WpfControl.Sample  {
 //    抽象クラス ViewModels.ViewModelBase を利用します
 //
 
-public class  SampleViewModel
-        : INotifyPropertyChanged, ISampleViewModel
+public  class  SampleViewModel
+        : ViewModelBase, ISampleViewModel
 {
 
 //========================================================================
@@ -49,11 +52,11 @@ SampleViewModel(
     this.m_sampleModel.InputChanged  += OnInputChanged;
     this.m_sampleModel.OutputChanged += OnOutputChanged;
 
-    this.m_runButtonCommand = new SimpleCommand<int>(
+    this.RunButtonCommand = new SimpleCommand<int>(
             parameter => executeRunButtonCommand(),
             parameter => this.m_sampleModel.canExecute()
     );
-    this.m_clearButtonCommand = new SimpleCommand<int>(
+    this.ClearButtonCommand = new SimpleCommand<int>(
             parameter => executeClearButtonCommand()
     );
 }
@@ -69,20 +72,15 @@ SampleViewModel(
 **
 **/
 
-public  virtual  ICommand
-ClearButtonCommand {
-    get { return  this.m_clearButtonCommand; }
-}
+public  virtual  ICommand  ClearButtonCommand { get; }
 
 //----------------------------------------------------------------
 /**   「実行」ボタン用のコマンドを取得するプロパティ。
 **
 **/
 
-public  virtual  ICommand
-RunButtonCommand {
-    get { return  this.m_runButtonCommand; }
-}
+public  virtual  ICommand  RunButtonCommand { get; }
+
 
 //----------------------------------------------------------------
 /**   「入力テキスト」プロパティ。
@@ -105,13 +103,6 @@ InputText {
 
 public  System.String
 OutputText => this.m_sampleModel.OutputText;
-
-//----------------------------------------------------------------
-/**
-**
-**/
-
-public  event   PropertyChangedEventHandler?    PropertyChanged;
 
 
 //========================================================================
@@ -156,19 +147,7 @@ OnOutputChanged()
 protected  virtual  void
 raiseCanExecuteChanged()
 {
-    this.m_runButtonCommand.raiseCanExecuteChanged();
-}
-
-//----------------------------------------------------------------
-/**
-**
-**/
-protected  virtual  void
-raisePropertyChanged(
-        [CallerMemberName]  System.String?  propertyName = null)
-{
-    PropertyChanged?.Invoke(
-            this, new PropertyChangedEventArgs(propertyName));
+    base.raiseCanExecuteChanged(this.RunButtonCommand);
 }
 
 
@@ -179,8 +158,6 @@ raisePropertyChanged(
 
 private  readonly   ISampleModel        m_sampleModel;
 
-private  readonly   SimpleCommand<int>  m_clearButtonCommand;
-private  readonly   SimpleCommand<int>  m_runButtonCommand;
 
 }   //  End of class  SampleViewModel
 
