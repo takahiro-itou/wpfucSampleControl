@@ -1,4 +1,4 @@
-﻿//  -*-  coding: utf-8-with-signature-unix;        -*-  //
+﻿//  -*-  coding: utf-8-with-signature-unix     -*-  //
 /*************************************************************************
 **                                                                      **
 **                  ---  WPF UserControl Library.  ---                  **
@@ -12,12 +12,16 @@
 **                                                                      **
 *************************************************************************/
 
-using System.ComponentModel;
-using System.Windows.Controls;
+using   System.ComponentModel;
+using   System.Windows.Controls;
 
 
-namespace WpfControl.Sample
-{
+namespace  WpfControl.Sample  {
+
+//========================================================================
+//
+//    SampleControl  class.
+//
 
 public  partial class  SampleControl : UserControl
 {
@@ -137,6 +141,6 @@ public  partial class  SampleControl : UserControl
     /**   ビューモデル。    **/
     private ISampleViewModel?   m_viewModel;
 
-}   //  End class SampleControl
+}   //  End of class  SampleControl
 
 }   //  End of namespace  WpfControl.Sample

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AbstractSampleModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ISampleModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ISampleViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SampleControl.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SampleViewModel.cs" />
+  </ItemGroup>
+
+</Project>

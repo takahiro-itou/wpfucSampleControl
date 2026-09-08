@@ -1,4 +1,4 @@
-﻿//  -*-  coding: utf-8-with-signature-unix;        -*-  //
+﻿//  -*-  coding: utf-8-with-signature-unix     -*-  //
 /*************************************************************************
 **                                                                      **
 **                  ---  WPF UserControl Library.  ---                  **
@@ -13,8 +13,7 @@
 *************************************************************************/
 
 
-namespace WpfControl.Sample
-{
+namespace  WpfControl.Sample  {
 
 //========================================================================
 //
@@ -69,6 +68,6 @@ public  interface  ISampleModel
     public  void
     setOutputText(System.String  value);
 
-}   //  End interface ISampleModel
+}   //  End of interface  ISampleModel
 
 }   //  End of namespace  WpfControl.Sample

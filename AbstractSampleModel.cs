@@ -1,4 +1,4 @@
-﻿//  -*-  coding: utf-8-with-signature-unix;        -*-  //
+﻿//  -*-  coding: utf-8-with-signature-unix     -*-  //
 /*************************************************************************
 **                                                                      **
 **                  ---  WPF UserControl Library.  ---                  **
@@ -13,20 +13,20 @@
 *************************************************************************/
 
 
-namespace WpfControl.Sample
-{
+namespace  WpfControl.Sample  {
 
 //========================================================================
 //
 //    AbstractSampleViewModel  class.
 //
-//    このクラスは別リポジトリ WpfControlLibrary  にある
-//    Common.SimpleCommand  を利用します
-//
 
-public abstract class  AbstractSampleModel
-        : ISampleModel
+public  abstract class  AbstractSampleModel : ISampleModel
 {
+
+//========================================================================
+//
+//    Constructor(s) and Destructor.
+//
 
     //----------------------------------------------------------------
     /**   コンストラクタ。
@@ -38,6 +38,11 @@ public abstract class  AbstractSampleModel
         this.InputText  = "";
         this.OutputText = "";
     }
+
+//========================================================================
+//
+//    Public Member Functions (Implement Interface).
+//
 
     //----------------------------------------------------------------
     /**   コマンドを実行可能か判定する。
@@ -87,14 +92,14 @@ public abstract class  AbstractSampleModel
 //    Accessors.
 //
 
-    public  void
+    public  virtual  void
     setInputText(System.String  value)
     {
         this.InputText  = value;
         notifyInputChanged();
     }
 
-    public  void
+    public  virtual  void
     setOutputText(System.String  value)
     {
         this.OutputText = value;
@@ -120,6 +125,6 @@ public abstract class  AbstractSampleModel
     }
 
 
-}   //  End class AbstractSampleModel
+}   //  End of class  AbstractSampleModel
 
 }   //  End of namespace  WpfControl.Sample
