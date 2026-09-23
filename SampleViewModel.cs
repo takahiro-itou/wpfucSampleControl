@@ -141,7 +141,8 @@ OnOutputChanged()
 **
 **/
 protected  override  void
-CheckCommandsCanExecute()
+CheckCommandsCanExecute(
+        System.String?  propertyName)
 {
     base.RaiseCanExecuteChanged(this.RunButtonCommand);
 }
