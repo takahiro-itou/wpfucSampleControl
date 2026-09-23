@@ -26,14 +26,14 @@ namespace  WpfControl.Sample  {
 public  partial class  SampleControl : UserControl
 {
 
-    //----------------------------------------------------------------
-    /**   デフォルトコンストラクタ
-    **
-    **/
-    public  SampleControl()
-    {
-        InitializeComponent();
-    }
+//----------------------------------------------------------------
+/**   デフォルトコンストラクタ
+**
+**/
+public  SampleControl()
+{
+    InitializeComponent();
+}
 
 
 //========================================================================
@@ -41,46 +41,46 @@ public  partial class  SampleControl : UserControl
 //    外部に公開するプロパティ
 //
 
-    //----------------------------------------------------------------
-    /**   InputText プロパティ
-    **
-    **/
-    [Browsable(true)
-      , Description("入力テキストボックスに入力された文字列")
-      , Category("表示")
-    ]
-    public System.String InputText
-    {
-        get { return  txtInput.Text; }
-        set { txtInput.Text = value; }
-    }
+//----------------------------------------------------------------
+/**   InputText プロパティ
+**
+**/
+[Browsable(true)
+  , Description("入力テキストボックスに入力された文字列")
+  , Category("表示")
+]
+public  System.String  InputText
+{
+    get { return  txtInput.Text; }
+    set { txtInput.Text = value; }
+}
 
-    //----------------------------------------------------------------
-    /**   OutputText  プロパティ
-    **
-    **/
-    [Browsable(true)
-      , Description("出力テキストボックスに表示する文字列")
-      , Category("表示")
-    ]
-    public System.String OutputText
-    {
-        get { return  txtOutput.Text; }
-        set { txtOutput.Text = value; }
-    }
+//----------------------------------------------------------------
+/**   OutputText  プロパティ
+**
+**/
+[Browsable(true)
+  , Description("出力テキストボックスに表示する文字列")
+  , Category("表示")
+]
+public System.String OutputText
+{
+    get { return  txtOutput.Text; }
+    set { txtOutput.Text = value; }
+}
 
-    //----------------------------------------------------------------
-    /**   ViewModel プロパティ。
-    **
-    **/
-    public  ISampleViewModel?  ViewModel
-    {
-        get { return  this.m_viewModel; }
-        set {
-            this.m_viewModel = value;
-            this.DataContext = value;
-        }
+//----------------------------------------------------------------
+/**   ViewModel プロパティ。
+**
+**/
+public  ISampleViewModel?  ViewModel
+{
+    get { return  this.m_viewModel; }
+    set {
+        this.m_viewModel = value;
+        this.DataContext = value;
     }
+}
 
 
 //========================================================================
@@ -88,15 +88,15 @@ public  partial class  SampleControl : UserControl
 //    外部に公開するイベント
 //
 
-    //----------------------------------------------------------------
-    /**   RunButtonClick  イベント
-    **
-    **/
-    [Browsable(true)
-      , Description("実行ボタンがクリックされた時に発生します")
-      , Category("アクション")
-    ]
-    public event EventHandler<EventArgs>? RunButtonClick;
+//----------------------------------------------------------------
+/**   RunButtonClick  イベント
+**
+**/
+[Browsable(true)
+  , Description("実行ボタンがクリックされた時に発生します")
+  , Category("アクション")
+]
+public  event   EventHandler<EventArgs>?    RunButtonClick;
 
 
 //========================================================================
@@ -104,17 +104,17 @@ public  partial class  SampleControl : UserControl
 //    Protected Member Functions.
 //
 
-    //----------------------------------------------------------------
-    /**   イベントハンドラを呼び出すメソッド。
-    **
-    **/
-    protected virtual void OnRunButtonClick(EventArgs e)
-    {
-        var eventHandler = RunButtonClick;
-        if ( eventHandler != null ) {
-            eventHandler(this, e);
-        }
+//----------------------------------------------------------------
+/**   イベントハンドラを呼び出すメソッド。
+**
+**/
+protected virtual void OnRunButtonClick(EventArgs e)
+{
+    var eventHandler = RunButtonClick;
+    if ( eventHandler != null ) {
+        eventHandler(this, e);
     }
+}
 
 
 //========================================================================
@@ -122,15 +122,16 @@ public  partial class  SampleControl : UserControl
 //    For Internal Use Only.
 //
 
-    //----------------------------------------------------------------
-    /**   イベントハンドラ
-    **
-    **    「実行」ボタンのクリックイベント。
-    **/
-    private void btnRun_Click(object sender, EventArgs e)
-    {
-        OnRunButtonClick(e);
-    }
+//----------------------------------------------------------------
+/**   イベントハンドラ
+**
+**    「実行」ボタンのクリックイベント。
+**/
+private  void
+btnRun_Click(object sender, EventArgs e)
+{
+    OnRunButtonClick(e);
+}
 
 
 //========================================================================
@@ -138,8 +139,9 @@ public  partial class  SampleControl : UserControl
 //    Member Variables.
 //
 
-    /**   ビューモデル。    **/
-    private ISampleViewModel?   m_viewModel;
+/**   ビューモデル。    **/
+private ISampleViewModel?   m_viewModel;
+
 
 }   //  End of class  SampleControl
 

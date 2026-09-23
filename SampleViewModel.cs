@@ -53,11 +53,11 @@ SampleViewModel(
     this.m_sampleModel.OutputChanged += OnOutputChanged;
 
     this.RunButtonCommand = new SimpleCommand<int>(
-            parameter => executeRunButtonCommand(),
+            parameter => ExecuteRunButtonCommand(),
             parameter => this.m_sampleModel.canExecute()
     );
     this.ClearButtonCommand = new SimpleCommand<int>(
-            parameter => executeClearButtonCommand()
+            parameter => ExecuteClearButtonCommand()
     );
 }
 
@@ -90,10 +90,7 @@ public  virtual  ICommand  RunButtonCommand { get; }
 public  System.String
 InputText {
     get { return  this.m_sampleModel.InputText; }
-    set {
-        this.m_sampleModel.setInputText(value);
-        raiseCanExecuteChanged();
-    }
+    set { this.m_sampleModel.setInputText(value); }
 }
 
 //----------------------------------------------------------------
@@ -116,13 +113,13 @@ OutputText => this.m_sampleModel.OutputText;
 //
 
 protected  virtual  void
-executeClearButtonCommand()
+ExecuteClearButtonCommand()
 {
     this.m_sampleModel.clearTexts();
 }
 
 protected  virtual  void
-executeRunButtonCommand()
+ExecuteRunButtonCommand()
 {
     this.m_sampleModel.executeCommand();
 }
@@ -130,24 +127,24 @@ executeRunButtonCommand()
 protected  virtual  void
 OnInputChanged()
 {
-    raisePropertyChanged(nameof(InputText));
-    raiseCanExecuteChanged();
+    RaisePropertyChanged(nameof(InputText));
 }
 
 protected  virtual  void
 OnOutputChanged()
 {
-    raisePropertyChanged(nameof(OutputText));
+    RaisePropertyChanged(nameof(OutputText));
 }
 
 //----------------------------------------------------------------
 /**
 **
 **/
-protected  virtual  void
-raiseCanExecuteChanged()
+protected  override  void
+CheckCommandsCanExecute(
+        System.String?  propertyName)
 {
-    base.raiseCanExecuteChanged(this.RunButtonCommand);
+    base.RaiseCanExecuteChanged(this.RunButtonCommand);
 }
 
 
