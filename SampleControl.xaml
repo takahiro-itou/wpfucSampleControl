@@ -19,7 +19,7 @@
       <RowDefinition Height="Auto" />
     </Grid.RowDefinitions>
 
-    <Label x:Name="Label1"
+    <Label x:Name="lblInput"
         Grid.Row="0" Grid.Column="0"
         Content="Input:"
         HorizontalContentAlignment="Right"
@@ -30,7 +30,7 @@
         Margin="4,8,8,4"
         Text="{Binding InputText, UpdateSourceTrigger=PropertyChanged}"
     />
-    <Label x:Name="Label2"
+    <Label x:Name="lblOutput"
         Grid.Row="1" Grid.Column="0"
         Content="Output:"
         HorizontalContentAlignment="Right"

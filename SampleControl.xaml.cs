@@ -42,6 +42,32 @@ public  SampleControl()
 //
 
 //----------------------------------------------------------------
+/**   ClearButtonLabel プロパティ
+**
+**/
+[Browsable(true)
+  , Description("クリアボタンに表示する文字列")
+  , Category("表示")
+]
+public  System.String  ClearButtonLabel {
+    get { return  btnClear.Content; }
+    set { btnClear.Content = value; }
+}
+
+//----------------------------------------------------------------
+/**   InputLabel プロパティ
+**
+**/
+[Browsable(true)
+  , Description("入力テキストボックス左に表示する文字列")
+  , Category("表示")
+]
+public  System.String  InputLabel {
+    get { return  lblInput.Content; }
+    set { lblInput.Content = value; }
+}
+
+//----------------------------------------------------------------
 /**   InputText プロパティ
 **
 **/
@@ -53,6 +79,19 @@ public  System.String  InputText
 {
     get { return  txtInput.Text; }
     set { txtInput.Text = value; }
+}
+
+//----------------------------------------------------------------
+/**   InputLabel プロパティ
+**
+**/
+[Browsable(true)
+  , Description("出力テキストボックス左に表示する文字列")
+  , Category("表示")
+]
+public  System.String  OutputLabel {
+    get { return  lblOutput.Content; }
+    set { lblOutput.Content = value; }
 }
 
 //----------------------------------------------------------------
@@ -68,6 +107,20 @@ public System.String OutputText
     get { return  txtOutput.Text; }
     set { txtOutput.Text = value; }
 }
+
+//----------------------------------------------------------------
+/**   RunButtonLabel プロパティ
+**
+**/
+[Browsable(true)
+  , Description("実行ボタンに表示する文字列")
+  , Category("表示")
+]
+public  System.String  RunButtonLabel {
+    get { return  btnRun.Content; }
+    set { btnRun.Content = value; }
+}
+
 
 //----------------------------------------------------------------
 /**   ViewModel プロパティ。
