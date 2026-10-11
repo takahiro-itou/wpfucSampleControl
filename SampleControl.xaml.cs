@@ -49,7 +49,7 @@ public  SampleControl()
   , Description("クリアボタンに表示する文字列")
   , Category("表示")
 ]
-public  System.String  ClearButtonLabel {
+public  object  ClearButtonLabel {
     get { return  btnClear.Content; }
     set { btnClear.Content = value; }
 }
@@ -62,7 +62,7 @@ public  System.String  ClearButtonLabel {
   , Description("入力テキストボックス左に表示する文字列")
   , Category("表示")
 ]
-public  System.String  InputLabel {
+public  object  InputLabel {
     get { return  lblInput.Content; }
     set { lblInput.Content = value; }
 }
@@ -89,7 +89,7 @@ public  System.String  InputText
   , Description("出力テキストボックス左に表示する文字列")
   , Category("表示")
 ]
-public  System.String  OutputLabel {
+public  object  OutputLabel {
     get { return  lblOutput.Content; }
     set { lblOutput.Content = value; }
 }
@@ -116,7 +116,7 @@ public System.String OutputText
   , Description("実行ボタンに表示する文字列")
   , Category("表示")
 ]
-public  System.String  RunButtonLabel {
+public  object  RunButtonLabel {
     get { return  btnRun.Content; }
     set { btnRun.Content = value; }
 }
